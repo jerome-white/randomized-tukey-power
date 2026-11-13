@@ -292,35 +292,67 @@ built to separate them.
 
 ## 5. Reservations about the comparison
 
-These are objections to be tested, not conclusions. The details of the
-paper come from an earlier reading and were not rechecked here
-[unverified], and none of the points has been shown to change the ranking.
+These are objections to be tested, not conclusions. They were checked
+against the text and the figures of arXiv v1 of the paper [verified: read;
+values taken from the figures are estimated by eye, not extracted]. None
+of them has been shown to change the ranking.
 
-1. **FWER against FDR.** The winner they recommend controls FDR, a weaker
-   promise (section 2), and the unadjusted Wilcoxon test controls neither.
-   Fairer baselines include FWER-controlling methods such as Holm and
-   Bonferroni, and the comparison should be made at equal achieved error.
-2. **Complete power** is the measure in their simulations (section 2).
-3. **No mixed nulls.** Their simulations had either all hypotheses true
-   or all false, as recorded. The mixed case is the one where FWER and FDR
-   differ most.
-4. **A truth label that favours liberal tests.** In their large check
-   (Million Query 2009), a pair counted as truly different if its mean
-   differed by more than a very small margin, which made nearly all pairs
-   "different". Rejecting more then looks like being right.
-5. **Scale.** Their simulations used 10, 30 or 50 topics and 3, 5 or 10
-   systems, built from TREC-8 (50 topics, 129 runs), with 100,000
-   permutations. These sizes are normal for classic lab experiments and
-   small for modern collections. The only large check, 687 topics, was
-   reported qualitatively. The number of permutations is not a concern:
-   the Monte Carlo error of a p-value near 0.05 at 100,000 permutations is
-   about 0.0007. [reasoned: arithmetic.]
+1. **The statistic and the correction change together.** The recommended
+   test is rank-based (Wilcoxon signed-rank); the randomized Tukey HSD and
+   the t-test compare means. In Figure 2 the Wilcoxon-based tests sit well
+   above the t-test-based ones at every correction, so part of the gap may
+   come from using means and not from controlling the error rate. The
+   like-for-like comparison for RTHSD is a paired t-test with a FWER
+   correction, and in Figure 2 RTHSD is still below t-test plus
+   Bonferroni (3 systems, 50 topics: about 0.5 against 0.7 at the largest
+   effect). [reasoned: read by eye.]
+2. **FWER against FDR.** The recommended winner controls FDR, a weaker
+   promise (section 2). But the paper also evaluates Holm and Bonferroni,
+   which control FWER [verified]. In the Million Query experiment RTHSD
+   trails them only slightly (about 0.25 against 0.3 average power at 100
+   topics, and it is ahead of them below about 50 topics), and the large
+   gap is to Benjamini-Hochberg and the unadjusted tests. So the price of
+   FWER control can explain that gap. It does not explain the simulation,
+   where RTHSD is below Holm and Bonferroni too. [reasoned: read by eye.]
+3. **The paper's explanation does not fit RTHSD.** They argue that tests
+   that fall below the nominal error rate lose power, and note that the
+   most powerful adjustments are those that came closest to it. RTHSD
+   comes closest and has the least power. Meeting the nominal rate when
+   all hypotheses are true says nothing about power when some are false.
+   [reasoned.]
+4. **Complete power** is the measure in the simulation: the probability of
+   rejecting every false hypothesis. They chose it because "it is common
+   to find several pairs actually different" in IR, and name minimal and
+   average power as alternatives [verified]. It is demanding when some
+   pairs differ only slightly, because one hard pair decides the outcome,
+   and it penalizes FWER methods the most. [reasoned.]
+5. **No mixed nulls.** Scenario 1 makes every hypothesis true and scenario
+   2 makes every one false [verified]. When all are true, Benjamini-
+   Hochberg's FDR and FWER coincide, so that experiment cannot show how
+   the two guarantees differ. The mixed case is where they differ most.
+   [reasoned.]
+6. **The Million Query truth label.** A pair counted as truly different if
+   its MAP differed by more than 0.05% over the 687 topics, which made
+   590 of the 595 pairs "different"; the paper says the other five are
+   not shown to be equal [verified]. This experiment measures power only,
+   so a test that rejects more looks better. [reasoned.]
+7. **Scale.** The simulation used 10, 30 or 50 topics and 3, 5 or 10
+   systems, built from TREC-8 (129 runs, 50 topics), with 100,000
+   permutations and 1,000 simulations per run. The Million Query
+   experiment used 35 runs and random subsets of 10 to 100 of the 687
+   topics, 2,000 times each [verified]. Nothing larger than 100 topics
+   was tested. These sizes are normal for classic lab experiments and
+   small for modern collections. The number of permutations is not a
+   concern: the Monte Carlo error of a p-value near 0.05 at 100,000
+   permutations is about 0.0007. [reasoned: arithmetic.]
 
-A note on topics. More topics give every sound test more power in absolute
-terms. The paper's claim is about *ranking*: that the randomized Tukey HSD
-falls behind the others beyond 50 topics. These do not contradict each
-other, but we cannot tell from the text which holds at large sizes. One of
-the experiments measures it directly. [unverified.]
+A note on topics. All sound tests gain power with more topics, and the
+paper's claim is about *ranking*: that the randomized Tukey HSD is the worst
+test beyond 50 topics. In Figure 3 it falls below Holm and Bonferroni at
+about 55 topics, and the gap to them does not close by 100. We cannot tell
+what happens at hundreds of topics, because nothing larger was tested. One
+of the experiments measures it directly. [verified for what Figure 3
+shows, by eye; unverified beyond 100 topics.]
 
 ## 6. Candidate remedies
 
