@@ -464,7 +464,10 @@ Practical notes:
 - Does the randomized Tukey HSD keep strong control (mixed nulls)?
 - How much of the published power gap remains once the comparison is made at
   equal achieved error?
-- How does power behave beyond 50 topics, up to several hundred?
+- How does power behave beyond 100 topics, the largest size the paper
+  tested, up to several hundred?
+- How much of the gap comes from the statistic (means against ranks) and
+  how much from the correction?
 - Does a step-down variant recover power? Which form is valid for
   permutation tests in this design?
 - Does studentizing help, and when?
