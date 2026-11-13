@@ -56,7 +56,7 @@ that is the family-wise error rate (FWER). The randomized Tukey HSD
 (RTHSD) is designed to keep it at 5% across all pairs at once. It is
 thus a technique that has been suggested as a modern approach to IR
 evaluation ([Carterette 2012](https://doi.org/10.1145/2094072.2094076)
-and [Sakai 2018](https://doi.org/10.1007/978-981-13-1199-4_4).
+and [Sakai 2018](https://doi.org/10.1007/978-981-13-1199-4_4)).
 
 [Otero and others](https://doi.org/10.1007/978-3-031-88711-6_27)
 compared RTHSD with other statistical tests. They report that while
