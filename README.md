@@ -53,7 +53,10 @@ significant.
 With `k` systems there are `k(k-1)/2` system pairs. Testing every pair
 at 5% makes at least one false alarm very likely. The probability of
 that is the family-wise error rate (FWER). The randomized Tukey HSD
-(RTHSD) is designed to keep it at 5% across all pairs at once. It is
+(RTHSD) is designed to keep it at or below a level alpha that you
+choose, conventionally 5%, across all pairs at once. It does so by asking
+how large a gap between the best and worst system chance alone could
+produce (section 3). It is
 thus a technique that has been suggested as a modern approach to IR
 evaluation ([Carterette 2012](https://doi.org/10.1145/2094072.2094076)
 and [Sakai 2018](https://doi.org/10.1007/978-981-13-1199-4_4)).
