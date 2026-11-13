@@ -34,7 +34,7 @@ evidence, cited where the claim is made.
 5. [Reservations about the comparison](#5-reservations-about-the-comparison)
 6. [Candidate remedies](#6-candidate-remedies)
 7. [The plan](#7-the-plan)
-8. [Experimental design and fairness](#8-experimental-design-and-fairness)
+8. [Experimental design](#8-experimental-design)
 9. [Open questions](#9-open-questions)
 10. [Decision log](#10-decision-log)
 11. [Glossary](#11-glossary)
@@ -154,8 +154,8 @@ probability of "any error" and has no counterpart in precision and recall.
 [reasoned for the FDR and precision statement; standard for the rest.]
 
 Comparing a FWER method with an FDR method on power alone is therefore not
-like for like: the FDR method is allowed to be bolder. This is the central
-reservation in section 5.
+like for like: the FDR method is allowed to be bolder. This is one of the
+reservations in section 5.
 
 ### Plotting error against power
 
@@ -164,8 +164,8 @@ vary its nominal level, measure the *achieved* FWER (or FDR) and the power
 in simulation, and plot achieved error on the x-axis against power on the
 y-axis. Each procedure gives a curve, and a better procedure sits above the
 others. This lets us compare procedures at the same achieved error rate,
-which is the fair way to compare them. [reasoned: a design for the
-experiments, not yet done.]
+which is the like-for-like way to compare them. [reasoned: a design for
+the experiments, not yet done.]
 
 ### Ways to count power across many pairs
 
@@ -371,9 +371,10 @@ Issue numbers will be linked here once the issues exist.
 Replication comes first. If the published numbers cannot be reproduced,
 nothing downstream can be trusted.
 
-## 8. Experimental design and fairness
+## 8. Experimental design
 
-Principles that every experiment is held to:
+Principles that keep a comparison like for like, which every experiment is
+held to:
 
 1. **Known truth.** Data are generated from a model in which we know which
    systems are equal and which differ.
