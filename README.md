@@ -85,8 +85,11 @@ published version was not compared.]
 
 In light of this finding, we want to know three things:
 
-1. **Is the low power real?** Does it survive a comparison that is fair
-   (section 8)?
+1. **Does the low power hold more broadly?** The paper measured complete
+   power with every hypothesis either true or false, and tested up to 100
+   topics. Does the result hold under other definitions of power, with a
+   mix of true and false hypotheses, with more topics, and against
+   baselines that make the same kind of error guarantee (section 8)?
 2. **If so, why?** Is it intrinsic to controlling the error rate this
    strictly, or does it come from choices in this particular procedure?
 3. **Can it be fixed?** Is there a variant that keeps the guarantee and
