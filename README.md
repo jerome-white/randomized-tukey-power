@@ -251,7 +251,9 @@ Each item is a hypothesis to test, not a finding.
 1. **The guarantee is the strictest one.** Controlling the chance of any
    false alarm across all pairs costs power compared with controlling the
    fraction of false discoveries. Part of the gap in the published
-   comparison may be just this price. The cost grows with the number of
+   comparison may be just this price. It can explain the distance to
+   Benjamini-Hochberg, but not the distance to Holm and Bonferroni, which
+   pay the same price (section 5). The cost grows with the number of
    systems (45 pairs at 10 systems, 1,225 at 50). [reasoned.]
 2. **The procedure is single-step.** A *step* is one round of decision.
    Single-step means a single threshold, taken from the range over all
@@ -278,6 +280,12 @@ Each item is a hypothesis to test, not a finding.
 4. **Complete power is harsh.** It counts a run as a success only if every
    truly different pair is found, so one hard pair decides the outcome, and
    it penalizes FWER methods the most. [reasoned.]
+5. **The statistic uses means.** In the paper's Figure 2 the
+   Wilcoxon-based tests beat the t-test-based ones at every correction, by
+   a wide margin. If per-topic differences in scores such as average
+   precision are skewed, means lose power relative to ranks, and a
+   procedure built on the range of means inherits that. [reasoned: from
+   the figure and general knowledge; the mechanism is untested.]
 
 Whether any of these is the main cause is unknown. The experiments are
 built to separate them.
