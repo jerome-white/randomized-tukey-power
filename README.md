@@ -115,11 +115,15 @@ Each cell is the probability of that outcome given the column's truth.
 - **Power** is `1 - beta`: the probability of detecting a real
   difference.
 
-Each column sums to one; there is no fixed relation between alpha and
-beta. What does hold is a trade-off: for a given test, effect size,
-amount of noise and number of topics, demanding a lower alpha makes
-the test stricter and lowers its power. Power also grows with the true
-size of the difference, with more topics, and with less noise.
+Each column sums to one. Alpha and beta trade off against each other.
+Fix the test, the size of the true difference, the amount of noise and
+the number of topics. Then a lower alpha makes the test stricter and
+lowers its power. Power rises with:
+
+- a larger true difference,
+- more topics,
+- less noise.
+
 [verified: standard; any statistics text.]
 
 ### The ROC view
