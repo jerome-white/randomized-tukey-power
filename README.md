@@ -58,9 +58,17 @@ thus a technique that has been suggested as a modern approach to IR
 evaluation ([Carterette 2012](https://doi.org/10.1145/2094072.2094076)
 and [Sakai 2018](https://doi.org/10.1007/978-981-13-1199-4_4)).
 
-[Otero and others](https://doi.org/10.1007/978-3-031-88711-6_27)
-compared RTHSD with other statistical tests. They report that while
-RTHSD does well with respect to FWER, it is underpowered:
+Otero, Parapar and Barreiro
+([ECIR 2025](https://doi.org/10.1007/978-3-031-88711-6_27); we read
+[arXiv v1](https://arxiv.org/abs/2501.03930)) compared RTHSD with other
+statistical tests in two experiments. The first is a simulation built
+from TREC-8 runs: 10, 30 or 50 topics, 3, 5 or 10 systems, and either
+every hypothesis true or every hypothesis false. Its measure is complete
+power, the probability of rejecting all of the false hypotheses. The
+second uses Million Query 2009 data and measures average power, the
+share of truly different pairs found, on random subsets of 10 to 100
+topics. They report that while RTHSD does well with respect to FWER, it
+is underpowered. This excerpt closes the second experiment:
 
 > We also highlight that the randomised TukeyHSD, which yields
 > remarkably good results in terms of expected FWER, performs poorly
@@ -69,9 +77,11 @@ RTHSD does well with respect to FWER, it is underpowered:
 > avoid employing this test, since it likely leave out interesting and
 > significant results.
 
-They ultimately recommend researchers avoid RTHSD in favour of the
-Wilcoxon signed-rank test with Benjamini-Hochberg
-correction. [verified]
+The simulation reaches the same conclusion: they describe RTHSD there
+as having "very low power". They ultimately recommend researchers avoid
+RTHSD in favour of the Wilcoxon signed-rank test with Benjamini-Hochberg
+correction. [verified: arXiv v1 read in full, text and figures; the
+published version was not compared.]
 
 In light of this finding, we want to know three things:
 
