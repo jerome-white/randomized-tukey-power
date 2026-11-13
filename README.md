@@ -234,9 +234,11 @@ normal-data assumptions. For the randomized version the shuffle also mixes
 in the systems that truly differ, so the shuffled distribution is not the
 distribution of the null systems alone, and whether the guarantee still
 holds is not obvious. In the multiple-testing literature this is the
-question of "subset pivotality". The published comparison also did not
-test mixtures of true and false nulls. [unverified: open question; a
-simulation with mixed nulls answers it for a given setting.]
+question of "subset pivotality". The published comparison did not test
+mixtures of true and false nulls [verified: its two scenarios are all true
+and all false]. Whether the guarantee holds under mixtures is an open
+question. [unverified: a simulation with mixed nulls answers it for a
+given setting.]
 
 A related concern: the shuffle assumes systems are exchangeable *in
 distribution*, not only in mean. Systems with different variances or
