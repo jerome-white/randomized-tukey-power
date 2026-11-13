@@ -128,12 +128,15 @@ lowers its power. Power rises with:
 
 ### The ROC view
 
-The dichotemy between alpha and beta can be characterised as a
-receiver operating characteristic (ROC). Change the threshold of a
-single test and record two numbers: the false alarm rate (alpha) and
-the power (the rate of detecting real differences).  Plotted as alpha
-against power, the points form the ROC curve of the test.  A better
-test has a curve that lies above another's. [verified: standard.]
+A lower alpha costs power, and how much depends on the test. A picture
+makes that comparable between tests. Take one test and a fixed situation
+(a given true difference and number of topics), then loosen and tighten
+its threshold. Each setting gives two numbers: alpha, the false alarm
+rate, on the x-axis, and power on the y-axis. Joining the points gives
+the test's *receiver operating characteristic* (ROC) curve. Rejecting
+nothing sits at the bottom left, rejecting everything at the top right,
+and guessing at random traces the diagonal. A better test bows toward the
+top left, with more power at the same alpha. [verified: standard.]
 
 ### Many tests at once
 
