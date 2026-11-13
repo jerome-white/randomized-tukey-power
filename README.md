@@ -42,23 +42,38 @@ evidence, cited where the claim is made.
 
 ## 1. The question
 
-Systems are compared on the same set of topics (in machine learning:
-models compared on the same datasets or folds). Every system is scored on
-every topic. Which systems differ? With `k` systems there are `k(k-1)/2`
-pairs, and testing each pair at the usual 5% level makes some false
-alarms very likely. The randomized Tukey HSD answers with one procedure
-that guards against false alarms across all pairs at once.
+When evaluating responses to treatments over a collection of blocks it
+is natural to ask how treatments differ, and whether those differences
+are the result of real effects. In the case of information retrieval
+(IR; the focus of this work) that means studying the differences
+between scores of systems across a range of topics. Researchers often
+want to know whether differences in scoring are statistically
+significant.
 
-Otero, Parapar and Barreiro (ECIR 2025) compared it with other tests. They
-report that it is the only test in their comparison that keeps the error
-rate where it promises, and that it "has very low power", and for more
-than 50 topics is "the worst test", and they recommend that researchers
-avoid it in favour of the Wilcoxon signed-rank test with
-Benjamini-Hochberg correction. [unverified: recorded from a full reading
-in an earlier session; the paper has not been re-read for this
-document.]
+With `k` systems there are `k(k-1)/2` system pairs. Testing every pair
+at 5% makes at least one false alarm very likely. The probability of
+that is the family-wise error rate (FWER). The randomized Tukey HSD
+(RTHSD) is designed to keep it at 5% across all pairs at once. It is
+thus a technique that has been suggested as a modern approach to IR
+evaluation ([Carterette 2012](https://doi.org/10.1145/2094072.2094076)
+and [Sakai 2018](https://doi.org/10.1007/978-981-13-1199-4_4).
 
-We want to know three things:
+[Otero and others](https://doi.org/10.1007/978-3-031-88711-6_27)
+compared RTHSD with other statistical tests. They report that while
+RTHSD does well with respect to FWER, it is underpowered:
+
+> We also highlight that the randomised TukeyHSD, which yields
+> remarkably good results in terms of expected FWER, performs poorly
+> in terms of power.  For sample sizes larger than 50, is indeed the
+> worst test. In light of these results, we recommend researchers to
+> avoid employing this test, since it likely leave out interesting and
+> significant results.
+
+They ultimately recommend researchers avoid RTHSD in favour of the
+Wilcoxon signed-rank test with Benjamini-Hochberg
+correction. [verified]
+
+In light of this finding, we want to know three things:
 
 1. **Is the low power real?** Does it survive a comparison that is fair
    (section 8)?
