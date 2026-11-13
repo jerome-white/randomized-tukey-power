@@ -229,10 +229,9 @@ with probability at most alpha. Hence the chance of any false alarm is at
 most alpha. [reasoned: the argument is the standard one for max-statistic
 permutation tests; it has not been checked here by simulation.]
 
-The level alpha is not part of the computation. The shuffles produce the
-p-values once, and alpha is chosen when they are read, conventionally 0.05,
-before looking at the results. The argument holds for whichever alpha is
-chosen.
+The shuffles produce the p-values once, and alpha is chosen when they are
+read, conventionally 0.05, before looking at the results. The argument
+holds for whichever alpha is chosen.
 
 Two consequences:
 
