@@ -483,6 +483,8 @@ Practical notes:
 | 2026-11-13 | Replicate the published setup before anything else.           |
 | 2026-11-13 | Adopt the conventions of RandomizedTukeyHSD.jl (#1).          |
 | 2026-11-13 | Prototype new procedures here; upstream only if useful.       |
+| 2026-11-13 | Name the paper's limits specifically; avoid "fair".           |
+| 2026-11-13 | Cross the statistic with the correction in the comparison.    |
 
 ## 11. Glossary
 
@@ -502,10 +504,13 @@ Practical notes:
 
 ## 12. References
 
-All cited from memory or from an earlier session; none re-read for this
-document. [unverified]
+Otero et al. was read in full (arXiv v1, text and figures) on 2026-11-13.
+[verified] The others are cited from memory or from an earlier session and
+were not re-read. [unverified]
 
-- Otero, Parapar, Barreiro. ECIR 2025. https://arxiv.org/abs/2501.03930
+- Otero, Parapar, Barreiro. Towards Reliable Testing for Multiple
+  Information Retrieval System Comparisons. ECIR 2025.
+  https://arxiv.org/abs/2501.03930 [verified: arXiv v1]
 - Carterette. Multiple testing in statistical analysis of systems-based
   information retrieval experiments. ACM TOIS, 2012.
 - Sakai. Laboratory Experiments in Information Retrieval: Sample Sizes,
