@@ -115,19 +115,21 @@ Each cell is the probability of that outcome given the column's truth.
 - **Power** is `1 - beta`: the probability of detecting a real
   difference.
 
-Each column sums to one. alpha and beta do *not* sum to one, and there is
-no fixed relation between them. What does hold is a trade-off: for a given
-test, effect size, amount of noise and number of topics, demanding a lower
-alpha makes the test stricter and lowers its power. Power also grows with
-the true size of the difference, with more topics, and with less noise.
+Each column sums to one; there is no fixed relation between alpha and
+beta. What does hold is a trade-off: for a given test, effect size,
+amount of noise and number of topics, demanding a lower alpha makes
+the test stricter and lowers its power. Power also grows with the true
+size of the difference, with more topics, and with less noise.
 [verified: standard; any statistics text.]
 
 ### The ROC view
 
-Change the threshold of a single test and record two numbers: the false
-alarm rate (alpha) and the power (the rate of detecting real differences).
-Plotted as alpha against power, the points form the ROC curve of the test.
-A better test has a curve that lies above another's. [verified: standard.]
+The dichotemy between alpha and beta can be characterised as a
+receiver operating characteristic (ROC). Change the threshold of a
+single test and record two numbers: the false alarm rate (alpha) and
+the power (the rate of detecting real differences).  Plotted as alpha
+against power, the points form the ROC curve of the test.  A better
+test has a curve that lies above another's. [verified: standard.]
 
 ### Many tests at once
 
