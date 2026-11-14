@@ -67,6 +67,15 @@ evidence rather than code.
 - **Experiments are reproducible.** A run is determined by a seed, its
   parameters and the commit of the code. A result states all three, so
   that anyone can regenerate it.
+- **Every number that is cited can be re-derived.** The test is whether,
+  if this session disappeared, someone could get the number again from
+  what is in the repository. Exploration is encouraged: an agent may try
+  things as the maintainer would. What is quoted in an issue, pull request
+  or document, or used to choose a direction, is recorded where it is
+  quoted: the command, the seed, the commit and the output. A script is
+  committed when it will be rerun or belongs to the experiment suite; a
+  one-off check leaves its command in the comment. A value that is only
+  estimated, such as one read off a plot, is labelled as an estimate.
 - **Fix the plan before looking at results.** The question, the metrics and
   the rule for deciding what counts as a win are written in an issue before
   the experiment that tests them runs. If the plan changes after results
