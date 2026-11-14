@@ -59,7 +59,9 @@ This repository is a research project, so some conventions concern
 evidence rather than code.
 
 - **Every claim has a status.** *Verified* means checked against a
-  source that was read, or against a run whose output is recorded.
+  source that was read, or against a run whose command and output are
+  recorded, as described under "Every number that is cited can be
+  re-derived".
   *Reasoned* means it follows from an argument but has not been checked.
   *Unverified* means it comes from memory, conversation or hearsay. A claim
   moves up a level only with evidence, and the evidence is cited where the
