@@ -182,7 +182,7 @@ the experiments, not yet done.]
 
 ### Ways to count power across many pairs
 
-"Power" is not one number when some pairs differ and some do not:
+Power takes several forms when some pairs differ and some do not:
 
 - **Per-pair (average) power**: the fraction of truly different pairs
   that the procedure finds.
