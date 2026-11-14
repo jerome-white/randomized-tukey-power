@@ -161,8 +161,9 @@ across many tests:
 
 FDR is the weaker promise, so procedures that control it are allowed more
 power. FDR is, in expectation, `1 - precision` of the list of discoveries,
-so FDR against power resembles the precision-recall view. FWER is a
-probability of "any error" and has no counterpart in precision and recall.
+so FDR against power resembles the precision-recall view. FWER is the
+probability of "any error", a different kind of quantity from precision
+and recall.
 [reasoned for the FDR and precision statement; standard for the rest.]
 
 Comparing a FWER method with an FDR method on power alone is therefore not
