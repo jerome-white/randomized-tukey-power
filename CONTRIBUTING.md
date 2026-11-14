@@ -68,7 +68,8 @@ evidence rather than code.
   claim is made. When in doubt, use the lower level.
 - **Experiments are reproducible.** A run is determined by a seed, its
   parameters and the commit of the code. A result states all three, so
-  that anyone can regenerate it.
+  that anyone can regenerate it. The overarching principle is that the
+  process of obtaining a result is as important as the result itself.
 - **Every number that is cited can be re-derived.** The test is whether,
   if this session disappeared, someone could get the number again from
   what is in the repository. Exploration is encouraged: an agent may try
