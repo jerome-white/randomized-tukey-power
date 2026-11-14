@@ -468,9 +468,9 @@ Practical notes:
   effects every nonzero difference is real but possibly undetectable.
   Prefer exactly-equal systems for nulls and clearly separated systems for
   alternatives, and treat the in-between as its own scenario.
-- Each simulated dataset costs thousands of shuffles per method. Large
-  grids exceed what an agent may run (see `CONTRIBUTING.md`); they are
-  delivered as a script with the command, expected duration and output path.
+- Each simulated dataset costs thousands of shuffles per method, so large
+  grids are delivered as scripts for the maintainer to run (see "Long runs
+  belong to the maintainer" in `CONTRIBUTING.md`).
 - The library gives per-pair p-values from the single-step procedure, so
   that method needs no change to the library. Step-down, studentized and
   per-pair variants are prototyped here first, and move upstream only if

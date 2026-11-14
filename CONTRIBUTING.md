@@ -56,10 +56,13 @@ Julia.
 ## Research conventions
 
 This repository is a research project, so some conventions concern
-evidence rather than code.
+evidence rather than code. The principle behind them is that the process of
+obtaining a result is as important as the result itself.
 
 - **Every claim has a status.** *Verified* means checked against a
-  source that was read, or against a run whose output is recorded.
+  source that was read, or against a run whose command and output are
+  recorded, as described under "Every number that is cited can be
+  re-derived".
   *Reasoned* means it follows from an argument but has not been checked.
   *Unverified* means it comes from memory, conversation or hearsay. A claim
   moves up a level only with evidence, and the evidence is cited where the
@@ -67,14 +70,26 @@ evidence rather than code.
 - **Experiments are reproducible.** A run is determined by a seed, its
   parameters and the commit of the code. A result states all three, so
   that anyone can regenerate it.
+- **Every number that is cited can be re-derived.** The test is whether,
+  if this session disappeared, someone could get the number again from
+  what is in the repository. Exploration is encouraged: an agent may try
+  things as the maintainer would. What is quoted in an issue, pull request
+  or document, or used to choose a direction, is recorded where it is
+  quoted: the command, the seed, the commit and the output. A script is
+  committed when it will be rerun or belongs to the experiment suite; a
+  one-off check leaves its command in the comment. A value that is only
+  estimated, such as one read off a plot, is labelled as an estimate.
 - **Fix the plan before looking at results.** The question, the metrics and
   the rule for deciding what counts as a win are written in an issue before
   the experiment that tests them runs. If the plan changes after results
   are seen, the change and its reason are recorded, not quietly applied.
-- **Long runs belong to the maintainer.** An agent does not run a job that
-  takes more than a minute or two. It supplies the command, the reason for
-  it, the expected duration and the output path, and the maintainer runs it.
-  An agent does not start background jobs.
+- **Long runs belong to the maintainer.** A job that takes more than a
+  minute or two is run by the maintainer. This avoids situations where
+  agent timeouts hinder execution, or large system resources are
+  acquired without system-wide context. This also encourages explicit,
+  repeatable instances of how the result was made. The agent supplies
+  the command, the reason for it, the expected duration and the output
+  path. The agent does not start background jobs.
 - **Discuss the science.** Issues, pull requests, commits and documents are
   about the questions, methods and evidence. Where the work will be
   published is not discussed here.
