@@ -363,13 +363,15 @@ of them has been shown to change the ranking.
    concern: the Monte Carlo error of a p-value near 0.05 at 100,000
    permutations is about 0.0007. [reasoned: arithmetic.]
 
-A note on topics. All sound tests gain power with more topics, and the
-paper's claim is about *ranking*: that the randomized Tukey HSD is the worst
-test beyond 50 topics. In Figure 3 it falls below Holm and Bonferroni at
-about 55 topics, and the gap to them does not close by 100. We cannot tell
-what happens at hundreds of topics, because nothing larger was tested. One
-of the experiments measures it directly. [verified for what Figure 3
-shows, by eye; unverified beyond 100 topics.]
+### A note on topics
+
+All sound tests gain power with more topics, and the paper's claim is
+about *ranking*: that the randomized Tukey HSD is the worst test
+beyond 50 topics. In Figure 3 it falls below Holm and Bonferroni at
+about 55 topics, and the gap to them does not close by 100. We cannot
+tell what happens at hundreds of topics, because nothing larger was
+tested. One of the experiments measures it directly. [verified for
+what Figure 3 shows, by eye; unverified beyond 100 topics.]
 
 ## 6. Candidate remedies
 
