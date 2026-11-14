@@ -85,8 +85,8 @@ obtaining a result is as important as the result itself.
   are seen, the change and its reason are recorded, not quietly applied.
 - **Long runs belong to the maintainer.** A job that takes more than a
   minute or two is run by the maintainer. This avoids situations where
-  agent timeouts hinder execution, or large system resourcs are
-  aquired without system wide context. This also encourages explicit,
+  agent timeouts hinder execution, or large system resources are
+  acquired without system-wide context. This also encourages explicit,
   repeatable instances of how the result was made. The agent supplies
   the command, the reason for it, the expected duration and the output
   path. The agent does not start background jobs.
