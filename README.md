@@ -291,11 +291,9 @@ Each item is a hypothesis to test, not a finding.
    range of raw means. A *studentized* statistic divides each difference by
    an estimate of its standard error (a paired difference divided by its
    standard deviation over topics, scaled by the square root of the number
-   of topics), so noisy pairs and quiet pairs are put on one scale. This
-   is not z-scoring a system's scores, which would remove the very means
-   being compared. With unequal variances across systems, the raw range
-   is dominated by the noisiest systems and loses sensitivity on the rest.
-   [reasoned.]
+   of topics), so noisy pairs and quiet pairs are put on one scale. With
+   unequal variances across systems, the raw range is dominated by the
+   noisiest systems and loses sensitivity on the rest. [reasoned.]
 4. **Complete power is harsh.** It counts a run as a success only if every
    truly different pair is found, so one hard pair decides the outcome, and
    it penalizes FWER methods the most. [reasoned.]
