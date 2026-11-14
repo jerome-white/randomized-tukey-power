@@ -303,6 +303,19 @@ Each item is a hypothesis to test, not a finding.
    precision are skewed, means lose power relative to ranks, and a
    procedure built on the range of means inherits that. [reasoned: from
    the figure and general knowledge; the mechanism is untested.]
+6. **The shuffled scores contain the spread between systems.** The test
+   shuffles the scores within each topic across systems. Those scores
+   include the true differences between systems, so the shuffled range
+   is wider than the range of noise alone, and the more the systems
+   differ, the wider it gets. The published simulation spaces its systems
+   evenly, so with 5 or 10 systems the extremes are 4 or 9 steps apart
+   while the pair that decides complete power is one step apart. That
+   would explain why the test collapses at 5 and 10 systems in Figure 2,
+   while ANOVA with Tukey, which divides by the variation left after the
+   system effects are removed, stays powerful there. [reasoned: from the
+   authors' code and the figure; untested.] If it holds, evenly spaced
+   systems are close to the worst case for this test, and collections
+   where systems cluster may behave differently.
 
 Whether any of these is the main cause is unknown. The experiments are
 built to separate them.
@@ -362,6 +375,13 @@ of them has been shown to change the ranking.
    small for modern collections. The number of permutations is not a
    concern: the Monte Carlo error of a p-value near 0.05 at 100,000
    permutations is about 0.0007. [reasoned: arithmetic.]
+8. **Equally spaced systems.** In the authors' code, system `i` of `m` has
+   its score model shifted by `i` times the effect size, so the effect size
+   on Figure 2's axis is the step between adjacent systems and the extremes
+   are `m - 1` steps apart [verified: read in the code; not run]. Complete
+   power asks for every adjacent pair, the smallest difference in the
+   design. Section 4, item 6, says why this layout may be hard for the
+   randomized Tukey HSD in particular.
 
 ### A note on topics
 
@@ -433,10 +453,23 @@ issue; its sub-issues carry it out. Families, in order:
 - **G. Upstream**: proposals back to RandomizedTukeyHSD.jl for anything
   that earns its place.
 
+Two items come from reading the authors' code (section 12):
+
+- Part of family C is a cross-check of their Java implementation of the
+  randomized Tukey HSD against the library on one score matrix. The
+  p-values should agree within Monte Carlo error.
+- Part of family B is the authors' equally spaced systems as one
+  scenario, next to clustered and unevenly spaced systems, to test section
+  4, item 6.
+
 Issue numbers will be linked here once the issues exist.
 
 Replication comes first. If the published numbers cannot be reproduced,
-nothing downstream can be trusted.
+nothing downstream can be trusted. Their experiments are unseeded
+(`new Random()` and `ThreadLocalRandom`), so the replication matches their
+curves statistically; it cannot match them draw for draw. Their code
+sets 1,000 simulated datasets and 100,000 permutations per dataset, so a
+reduced version is run first, by the maintainer.
 
 ## 8. Experimental design
 
@@ -489,8 +522,14 @@ Practical notes:
   permutation tests in this design?
 - Does studentizing help, and when?
 - Which data should the replication use? The published simulations were
-  built from TREC-8 runs; whether the runs can be obtained and used is
-  unchecked.
+  built from TREC-8 runs, which the authors' repository does not contain
+  (its README says to obtain them); whether the runs and qrels can be
+  obtained and used is unchecked.
+- Does the spread between systems inflate the shuffle null (section 4,
+  item 6), and does the test recover power when systems are clustered or
+  unevenly spaced?
+- Where does the Million Query truth threshold of 0.05% MAP get computed?
+  It is not in the Java files read.
 
 ## 10. Decision log
 
@@ -502,6 +541,7 @@ Practical notes:
 | 2026-11-13 | Prototype new procedures here; upstream only if useful.       |
 | 2026-11-13 | Name the paper's limits specifically; avoid "fair".           |
 | 2026-11-13 | Cross the statistic with the correction in the comparison.    |
+| 2026-11-14 | Use the authors' Java code as the replication baseline (#7).  |
 
 ## 11. Glossary
 
@@ -529,6 +569,11 @@ were not re-read. [unverified]
   Information Retrieval System Comparisons. ECIR
   2025. [DOI](https://doi.org/10.1007/978-3-031-88711-6_27). [verified:
   [arXiv v1](https://arxiv.org/abs/2501.03930)]
+- Otero's code: [IRLab-UDC/multiple-testing](https://github.com/IRLab-UDC/multiple-testing),
+  `main` at `e6bcc5c0f95372876590707ba36fe2aa70c1472e` (pushed 2026-05-07).
+  Read on 2026-11-14: `RandomisedTukeyHSD`, the correction classes, the
+  system model and the experiment drivers. Nothing was run. [verified:
+  read]
 - Carterette. Multiple testing in statistical analysis of
   systems-based information retrieval experiments. ACM TOIS,
   2012. [DOI](https://doi.org/10.1145/2094072.20940).
