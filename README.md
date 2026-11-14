@@ -236,8 +236,8 @@ holds for whichever alpha is chosen.
 
 Two consequences:
 
-- The p-values are **already adjusted for multiplicity**. They must not be
-  fed to Holm, Bonferroni or Benjamini-Hochberg a second time. [reasoned.]
+- The p-values are **already adjusted for multiplicity**, so they are used
+  as they are. [reasoned.]
 - The shuffle takes the threshold from the largest difference among *all*
   systems. The next sections build on that fact.
 
