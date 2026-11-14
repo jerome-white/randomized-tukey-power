@@ -531,13 +531,13 @@ were not re-read. [unverified]
   [arXiv v1](https://arxiv.org/abs/2501.03930)]
 - Carterette. Multiple testing in statistical analysis of
   systems-based information retrieval experiments. ACM TOIS,
-  2012. [DOI](https://doi.org/10.1145/2094072.20940)
+  2012. [DOI](https://doi.org/10.1145/2094072.20940).
 - Sakai. Laboratory Experiments in Information Retrieval: Sample
   Sizes, Effect Sizes, and Statistical Power. Springer,
-  2018. [DOI](https://doi.org/10.1007/978-981-13-1199-4)
+  2018. [DOI](https://doi.org/10.1007/978-981-13-1199-4).
 - Tukey. The problem of multiple comparisons, 1953.
 - Benjamini, Hochberg. Controlling the false discovery rate. JRSS B,
-  1995. [DOI](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x)
+  1995. [DOI](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x).
 - Holm. A simple sequentially rejective multiple test procedure,
-  1979. [DOI](https://doi.org/10.2307/4615733?utm_source=chatgpt.com)
+  1979. [DOI](https://doi.org/10.2307/4615733).
 - Westfall, Young. Resampling-Based Multiple Testing, 1993.
