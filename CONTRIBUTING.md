@@ -84,11 +84,12 @@ evidence rather than code.
   the experiment that tests them runs. If the plan changes after results
   are seen, the change and its reason are recorded, not quietly applied.
 - **Long runs belong to the maintainer.** A job that takes more than a
-  minute or two is run by the maintainer. An agent's commands have time
-  limits, and a run the maintainer performs leaves an explicit, repeatable
-  instance of how the result was made. The agent supplies the command, the
-  reason for it, the expected duration and the output path. An agent starts
-  no background jobs.
+  minute or two is run by the maintainer. This avoids situations where
+  agent timeouts hinder execution, or large system resourcs are
+  aquired without system wide context. This also encourages explicit,
+  repeatable instances of how the result was made. The agent supplies
+  the command, the reason for it, the expected duration and the output
+  path. The agent does not start background jobs.
 - **Discuss the science.** Issues, pull requests, commits and documents are
   about the questions, methods and evidence. Where the work will be
   published is not discussed here.
