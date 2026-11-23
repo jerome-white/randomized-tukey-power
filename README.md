@@ -509,6 +509,74 @@ Practical notes:
   per-pair variants are prototyped here first, and move upstream only if
   they earn it.
 
+### What counts as a replication
+
+The replication runs the authors' code again at a reduced scale (issue
+#18) and compares the result with the paper (issue #20). This subsection
+fixes the comparison before anything is run. The paper's figures can only
+be read by eye, so the criterion is a list of claims, each with a rule
+that decides it, and not a match of curves.
+
+What the paper's figures average over [verified: arXiv v1, section 4]. Each
+bar of Figure 1 is the mean of 129,000 simulations, 1,000 for each of the
+129 TREC-8 runs. Figure 2 also uses 1,000 simulations per run, but the
+text does not say that its curves are averaged over the 129 runs
+[unverified]. Both use average precision, alpha 0.05, 3, 5 or 10 systems,
+and 10, 30 or 50 topics.
+
+What the reduced run keeps and what it reduces. It keeps the scenarios,
+the statistics, alpha, the metric and the 100,000 permutations, because the
+permutation count is part of the method. It reduces the number of runs `R`
+and the simulations per run `S`, and it uses a coarser grid of effect
+steps. The runs are chosen by a recorded rule, and the per-run output files
+are kept, so the spread across runs is reported next to the average. A
+subset of runs gives a different average from all 129, and that is a stated
+limit of the replication.
+
+The Monte Carlo error of a rate `p` estimated from `N = R * S` simulations
+is `sqrt(p * (1 - p) / N)`. The rule for the reduced grid is `N >= 2,000`
+in every cell, which gives an error of at most about 0.005 near 0.05 and
+0.011 near 0.5. The values of `R`, `S` and the effect steps are written
+here, in a commit of their own, after one timing run of a single cell by
+the maintainer and before the runs that produce results. [To be filled.]
+
+The claims, each judged in every cell that is run:
+
+1. **Figure 1, calibration.** The FWER of the randomized Tukey HSD is 0.05
+   within two Monte Carlo errors. The paper says it is the only adjusted
+   procedure that matches the expected error rate [verified: read].
+2. **Figure 1, the others.** At 10 topics, Bonferroni and Holm on the
+   t-test have a FWER below 0.05 by more than two Monte Carlo errors, and
+   ANOVA with Tukey is above 0.05 by more than two at 50 topics with the
+   smallest number of systems the paper ran, 3 [verified: the text says
+   "very high" error "when the number of systems is small"; the size is by
+   eye].
+3. **Figure 2, ordering.** The complete power of the randomized Tukey HSD
+   is below that of Wilcoxon with Benjamini-Hochberg, and below that of
+   t-test with Bonferroni, in each cell where either exceeds 0.1. The gap
+   to t-test with Bonferroni at 3 systems and 50 topics, at the largest
+   effect step, is at least 0.1; the paper's figure shows about 0.2, read
+   by eye, and the rule leaves room for the reading error.
+4. **Figure 2, many systems.** At 5 and 10 systems the complete power of
+   the randomized Tukey HSD stays below 0.1 at every effect step run. The
+   text says the test "has virtually no power" with 10 and 45 hypotheses.
+5. **Figure 2, topics.** Complete power of the randomized Tukey HSD at the
+   largest effect step is higher at 50 topics than at 10, in each of the
+   three system counts.
+
+The verdict is one of three, written in the decision log with the cells it
+covers:
+
+- **Replicated**: every claim holds in every cell run.
+- **Partly replicated**: claim 1 holds and at least one of the others fails
+  in some cell, or only some of the cells were run. The failing claims and
+  cells are listed.
+- **Not replicated**: claim 1 fails (the error rate differs from the
+  paper's), or claim 3 is reversed in a cell where both powers exceed 0.1.
+
+A partly replicated or not replicated verdict is a result about the
+published code or about this setup, and each leads to its own issue.
+
 ## 9. Open questions
 
 - Does the randomized Tukey HSD keep strong control (mixed nulls)?
